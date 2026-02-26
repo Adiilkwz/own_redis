@@ -33,9 +33,9 @@ func (h *Handler) HandleProcess(input string) string {
 	case "PING":
 		return "PONG\n"
 	case "GET":
-		return h.handleGet(args)
+		return h.handleGet(args[1:])
 	case "SET":
-		return h.handleSet(args)
+		return h.handleSet(args[1:])
 	default:
 		return fmt.Sprintf("(error) ERR unknown command '%s'\n", command)
 	}
